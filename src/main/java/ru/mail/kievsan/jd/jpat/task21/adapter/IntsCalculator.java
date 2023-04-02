@@ -1,5 +1,7 @@
 package ru.mail.kievsan.jd.jpat.task21.adapter;
 
+// Adapter к Calculator c интерфейсом Ints
+
 public class IntsCalculator implements Ints {
 
     protected final Calculator target;
@@ -11,16 +13,28 @@ public class IntsCalculator implements Ints {
 
     @Override
     public int sum(int arg0, int arg1) {
-        return 0;
+        return (int) target.newFormula()
+                .addOperand(arg0)
+                .addOperand(arg1)
+                .calculate(Calculator.Operation.SUM)
+                .result();
     }
 
     @Override
     public int mult(int arg0, int arg1) {
-        return 0;
+        return (int) target.newFormula()
+                .addOperand(arg0)
+                .addOperand(arg1)
+                .calculate(Calculator.Operation.MULT)
+                .result();
     }
 
     @Override
     public int pow(int a, int b) {
-        return 0;
+        return (int) target.newFormula()
+                .addOperand(a)
+                .addOperand(b)
+                .calculate(Calculator.Operation.POW)
+                .result();
     }
 }
